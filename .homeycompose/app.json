@@ -2,28 +2,27 @@
     "id": "pl.mobilus.mobiq",
     "version": "1.0.0",
     "compatibility": ">=5.0.0",
+    "platforms": ["local"],
     "sdk": 3,
     "brandColor": "#3aaa35",
-    "platforms": ["local"],
-    "name": {
-        "en": "Mob.iq"
-    },
+    "name": "Mob.iq",
     "description": {
-        "en": "Easily integrate and manage your Mob.iq devices"
+        "en": "Enjoy the mobility"
     },
     "category": ["tools"],
-    "tags": { "en": [] },
+    "tags": { "en": ["motor", "window"] },
     "permissions": [],
     "images": {
         "small": "/assets/images/small.png",
         "large": "/assets/images/large.png",
         "xlarge": "/assets/images/xlarge.png"
     },
-    "bugs": {
-        "url": "https://github.com/Tymec/pl.mobilus.mobiq/issues"
-    },
     "author": {
         "name": "Tymoteusz Grabowski",
         "email": "tymek1rt@hotmail.com"
+    },
+    "source": "https://github.com/Tymec/pl.mobilus.mobiq",
+    "bugs": {
+        "url": "https://github.com/Tymec/pl.mobilus.mobiq/issues"
     }
 }

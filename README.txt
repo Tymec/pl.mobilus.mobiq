@@ -1,1 +1,1 @@
-Easily integrate and manage your mob.iq tubular motors
+With Mob.iq, you can easily adjust the position and speed of your blinds, curtains, awnings and other devices that use tubular motors.

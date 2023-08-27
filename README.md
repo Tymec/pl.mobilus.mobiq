@@ -1,3 +1,3 @@
 # Mob.iq
 
-Easily integrate and manage your mob.iq tubular motors
+Enjoy the mobility

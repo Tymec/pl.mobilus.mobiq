@@ -1,0 +1,61 @@
+{
+    "name": {
+        "en": "Tubular motor M35 EZRS"
+    },
+    "class": "blinds",
+    "capabilities": [
+        "windowcoverings_state",
+        "windowcoverings_set",
+        "windowcoverings_closed",
+        "alarm_contact"
+    ],
+    "platforms": ["local"],
+    "connectivity": ["zwave"],
+    "images": {
+        "small": "{{driverAssetsPath}}/images/small.png",
+        "large": "{{driverAssetsPath}}/images/large.png",
+        "xlarge": "{{driverAssetsPath}}/images/xlarge.png"
+    },
+    "zwave": {
+        "manufacturerId": 413,
+        "productTypeId": [3],
+        "productId": [16],
+        "zwaveAllianceProductId": 2069,
+        "associationGroups": [1],
+        "associationGroupsOptions": {
+            "1": {
+                "hint": {
+                    "en": "Allows to send information about failures, errors and alarms directly to the controller"
+                }
+            },
+            "2": {
+                "hint": {
+                    "en": "Allows to send direct steering commands between SLAVE devices without participation of PRIMARY controller"
+                }
+            },
+            "3": {
+                "hint": {
+                    "en": "Allows to send direct steering commands (BASIC_SET with value 0xFF) to other devices if error is detected"
+                }
+            }
+        },
+        "learnmode": {
+            "image": "{{driverAssetsPath}}/learnmode.svg",
+            "instruction": {
+                "en": "Press the PROGRAMMING BUTTON on the device."
+            }
+        },
+        "defaultConfiguration": [
+            {
+                "id": 12,
+                "size": 1,
+                "value": 0
+            },
+            {
+                "id": 13,
+                "size": 1,
+                "value": 0
+            }
+        ]
+    }
+}

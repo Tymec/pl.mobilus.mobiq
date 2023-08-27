@@ -1,0 +1,67 @@
+[
+    {
+        "type": "group",
+        "label": { "en": "Configuration" },
+        "children": [
+            {
+                "id": "motor_state",
+                "type": "dropdown",
+                "value": "0",
+                "label": { "en": "Motor state" },
+                "hint": { "en": "Motor state after power on" },
+                "values": [
+                    {
+                        "id": "0",
+                        "label": { "en": "Normal mode" }
+                    },
+                    {
+                        "id": "1",
+                        "label": { "en": "Calibration mode" }
+                    },
+                    {
+                        "id": "2",
+                        "label": {
+                            "en": "Discalibration mode (reset of the tubular motor - restore presets)"
+                        }
+                    }
+                ],
+                "zwave": {
+                    "index": 12,
+                    "size": 1
+                }
+            },
+            {
+                "id": "reset_behaviour",
+                "type": "dropdown",
+                "value": "0",
+                "label": { "en": "Reset behaviour" },
+                "hint": {
+                    "en": "Motor behavior after receiving BASIC_SET with value 0xFF"
+                },
+                "values": [
+                    {
+                        "id": "0",
+                        "label": { "en": "Last known non-zero position" }
+                    },
+                    {
+                        "id": "1",
+                        "label": { "en": "Max open" }
+                    }
+                ],
+                "zwave": {
+                    "index": 13,
+                    "size": 1
+                }
+            },
+            {
+                "id": "switch_all",
+                "type": "checkbox",
+                "value": true,
+                "label": { "en": "Switch all" },
+                "hint": {
+                    "en": "Include/exclude from switch all functionality"
+                }
+            }
+        ]
+    }
+]

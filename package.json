@@ -1,0 +1,30 @@
+{
+    "name": "pl.mobilus.mobiq",
+    "version": "1.0.0",
+    "main": "app.ts",
+    "type": "module",
+    "scripts": {
+        "build": "tsc",
+        "lint": "eslint --ext .js,.ts --ignore-path .gitignore .",
+        "format": "prettier --write .",
+        "dev": "homey app run -r",
+        "validate": "homey app validate",
+        "publish": "homey app publish"
+    },
+    "dependencies": {
+        "homey-zwavedriver": "^2.1.10"
+    },
+    "devDependencies": {
+        "@tsconfig/node16": "^16.1.1",
+        "@types/homey": "npm:homey-apps-sdk-v3-types@^0.3.4",
+        "@types/node": "^20.5.6",
+        "eslint": "^7.32.0",
+        "eslint-config-athom": "^3.1.1",
+        "eslint-config-prettier": "^9.0.0",
+        "prettier": "^3.0.2",
+        "typescript": "^5.1.6"
+    },
+    "engines": {
+        "node": ">=16.0.0"
+    }
+}

@@ -32,14 +32,14 @@ class Device extends ZwaveDevice {
                     this.refreshCapabilityValue(
                         'windowcoverings_set',
                         'SWITCH_MULTILEVEL'
-                    );
+                    ).catch(this.error);
                     return report['Event'] === 3;
                 }
                 return null;
             },
         });
         // Set alarm_contact to false
-        this.setCapabilityValue('alarm_contact', false).catch(this.error);
+        await this.setCapabilityValue('alarm_contact', false).catch(this.error);
     }
 }
 

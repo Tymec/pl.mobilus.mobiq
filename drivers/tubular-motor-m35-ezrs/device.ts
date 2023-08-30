@@ -7,77 +7,39 @@ class Device extends ZwaveDevice {
 
         this.log('Device has been initialized');
 
-        // DEVICE_RESET_LOCALLY_NOTIFICATION
-        this.registerCapability('windowcoverings_set', 'SWITCH_MULTILEVEL');
-        this.registerCapability('windowcoverings_state', 'SWITCH_BINARY');
-        this.registerCapability('windowcoverings_closed', 'SWITCH_BINARY', {
-            get: 'SWITCH_BINARY_GET',
+        // Add windowcoverings_set capability if not already added
+        if (!this.hasCapability('windowcoverings_set')) {
+            await this.addCapability('windowcoverings_set').catch(this.error);
+        }
+        // Register windowcoverings_set capability
+        this.registerCapability('windowcoverings_set', 'SWITCH_MULTILEVEL', {
             getOpts: {
-                getOnOnline: true,
                 getOnStart: true,
-            },
-            set: 'SWITCH_BINARY_SET',
-            setParser: (value: any) => {
-                this.log('setParser', value);
-                return {
-                    'Switch Value': value ? 'on/enable' : 'off/disable',
-                };
-            },
-            report: 'SWITCH_BINARY_REPORT',
-            reportParser: (report: any) => {
-                this.log('reportParser', report);
-                return report['Value'] === 'on/enable';
+                pollInterval: 'poll_interval',
+                pollMultiplication: 60000,
             },
         });
 
-        // this.registerCapability('windowcoverings_set', 'SWITCH_MULTILEVEL', {
-        //     get: 'SWITCH_MULTILEVEL_GET',
-        //     getParser: (value: any) => {
-        //         this.log('getParser', value);
-        //         return value;
-        //     },
-        //     set: 'SWITCH_MULTILEVEL_SET',
-        //     setParser: (value: any) => {
-        //         this.log('setParser', value);
-        //         return {
-        //             Value: value,
-        //             'Dimming Duration': 0,
-        //         };
-        //     },
-        //     report: 'SWITCH_MULTILEVEL_REPORT',
-        //     reportParser: (report: any) => {
-        //         this.log('reportParser', report);
-        //         return report['Value (Raw)'][0];
-        //     },
-        // });
-
-        this.registerCapability('alarm_contact', 'NOTIFICATION');
-    }
-
-    async onSettings({
-        oldSettings,
-        newSettings,
-        changedKeys,
-    }: {
-        oldSettings: {
-            [key: string]: string | number | boolean | null | undefined;
-        };
-        newSettings: {
-            [key: string]: string | number | boolean | null | undefined;
-        };
-        changedKeys: string[];
-    }): Promise<string | void> {
-        this.log('onSettings', oldSettings, newSettings, changedKeys);
-
-        if (changedKeys.includes('switch_all')) {
-            this.log('switch_all', newSettings.switch_all);
-        } else if (changedKeys.includes('reset_behaviour')) {
-            this.log('reset_behaviour', newSettings.reset_behaviour);
-        } else if (changedKeys.includes('motor_state')) {
-            this.log('motor_state', newSettings.motor_state);
+        // Add alarm_contact capability if not already added
+        if (!this.hasCapability('alarm_contact')) {
+            await this.addCapability('alarm_contact').catch(this.error);
         }
-
-        // throw new Error('Not implemented yet');
+        // Register alarm_contact capability
+        this.registerCapability('alarm_contact', 'NOTIFICATION', {
+            report: 'NOTIFICATION_REPORT',
+            reportParser: (report) => {
+                if (report && report['Notification Type'] === 'System') {
+                    this.refreshCapabilityValue(
+                        'windowcoverings_set',
+                        'SWITCH_MULTILEVEL'
+                    );
+                    return report['Event'] === 3;
+                }
+                return null;
+            },
+        });
+        // Set alarm_contact to false
+        this.setCapabilityValue('alarm_contact', false).catch(this.error);
     }
 }
 

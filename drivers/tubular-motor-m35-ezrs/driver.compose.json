@@ -3,12 +3,19 @@
         "en": "Tubular motor M35 EZRS"
     },
     "class": "blinds",
-    "capabilities": [
-        "windowcoverings_state",
-        "windowcoverings_set",
-        "windowcoverings_closed",
-        "alarm_contact"
-    ],
+    "capabilities": ["windowcoverings_set", "alarm_contact"],
+    "capabilitiesOptions": {
+        "windowcoverings_set": {
+            "title": {
+                "en": "Blinds"
+            }
+        },
+        "alarm_contact": {
+            "title": {
+                "en": "Obstruction"
+            }
+        }
+    },
     "platforms": ["local"],
     "connectivity": ["zwave"],
     "images": {
@@ -25,17 +32,7 @@
         "associationGroupsOptions": {
             "1": {
                 "hint": {
-                    "en": "Allows to send information about failures, errors and alarms directly to the controller"
-                }
-            },
-            "2": {
-                "hint": {
-                    "en": "Allows to send direct steering commands between SLAVE devices without participation of PRIMARY controller"
-                }
-            },
-            "3": {
-                "hint": {
-                    "en": "Allows to send direct steering commands (BASIC_SET with value 0xFF) to other devices if error is detected"
+                    "en": "The lifeline group is used to report the device status and allows for remote control of the device."
                 }
             }
         },

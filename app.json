@@ -42,28 +42,19 @@
       },
       "class": "blinds",
       "capabilities": [
-        "onoff",
-        "windowcoverings_state",
         "windowcoverings_set",
-        "windowcoverings_closed",
-        "alarm_contact",
-        "button.calibrate"
+        "alarm_contact"
       ],
       "capabilitiesOptions": {
-        "button.calibrate": {
-          "maintenanceAction": true,
+        "windowcoverings_set": {
           "title": {
-            "en": "Start calibration"
-          },
-          "desc": {
-            "en": "Calibration is used to set the upper and lower limits of the blinds. It is recommended to perform calibration after installation and after changing the position of the blinds."
+            "en": "Blinds"
           }
-        }
-      },
-      "energy": {
-        "approximation": {
-          "usageOn": 120,
-          "usageOff": 0
+        },
+        "alarm_contact": {
+          "title": {
+            "en": "Obstruction"
+          }
         }
       },
       "platforms": [
@@ -190,34 +181,20 @@
           ]
         },
         {
-          "type": "group",
+          "id": "poll_interval",
+          "type": "number",
+          "value": 1,
+          "min": 1,
+          "max": 1440,
           "label": {
-            "en": "Experimental"
+            "en": "Poll interval"
           },
-          "children": [
-            {
-              "id": "switch_all",
-              "type": "checkbox",
-              "value": true,
-              "label": {
-                "en": "Switch all"
-              },
-              "hint": {
-                "en": "Include/exclude from switch all functionality"
-              }
-            },
-            {
-              "id": "reverse_direction",
-              "type": "checkbox",
-              "value": false,
-              "label": {
-                "en": "Reverse direction"
-              },
-              "hint": {
-                "en": "Reverse direction of the motor (up/down)"
-              }
-            }
-          ]
+          "hint": {
+            "en": "How often to poll the device for its state"
+          },
+          "units": {
+            "en": "minutes"
+          }
         }
       ]
     }

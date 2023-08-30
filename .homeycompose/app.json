@@ -1,30 +1,39 @@
 {
-    "id": "pl.mobilus.mobiq",
-    "version": "1.0.0",
-    "compatibility": ">=5.0.0",
-    "platforms": ["local"],
-    "sdk": 3,
-    "brandColor": "#3aaa35",
-    "name": {
-        "en": "Mob.iq"
-    },
-    "description": {
-        "en": "Enjoy the mobility"
-    },
-    "category": ["tools"],
-    "tags": { "en": ["motor", "window"] },
-    "permissions": [],
-    "images": {
-        "small": "/assets/images/small.png",
-        "large": "/assets/images/large.png",
-        "xlarge": "/assets/images/xlarge.png"
-    },
-    "author": {
-        "name": "Tymoteusz Grabowski",
-        "email": "tymek1rt@hotmail.com"
-    },
-    "source": "https://github.com/Tymec/pl.mobilus.mobiq",
-    "bugs": {
-        "url": "https://github.com/Tymec/pl.mobilus.mobiq/issues"
-    }
+  "id": "pl.mobilus.mobiq",
+  "version": "1.0.1",
+  "compatibility": ">=5.0.0",
+  "platforms": [
+    "local"
+  ],
+  "sdk": 3,
+  "brandColor": "#3aaa35",
+  "name": {
+    "en": "Mob.iq"
+  },
+  "description": {
+    "en": "Enjoy the mobility"
+  },
+  "category": [
+    "tools"
+  ],
+  "tags": {
+    "en": [
+      "motor",
+      "window"
+    ]
+  },
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Tymoteusz Grabowski",
+    "email": "tymek1rt@hotmail.com"
+  },
+  "source": "https://github.com/Tymec/pl.mobilus.mobiq",
+  "bugs": {
+    "url": "https://github.com/Tymec/pl.mobilus.mobiq/issues"
+  }
 }

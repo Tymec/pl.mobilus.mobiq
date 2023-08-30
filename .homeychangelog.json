@@ -1,5 +1,8 @@
 {
   "1.0.0": {
     "en": "Added support for M35 EZRS"
+  },
+  "1.0.1": {
+    "en": "Fixed app name"
   }
 }

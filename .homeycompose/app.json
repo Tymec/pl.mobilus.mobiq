@@ -5,7 +5,9 @@
     "platforms": ["local"],
     "sdk": 3,
     "brandColor": "#3aaa35",
-    "name": "Mob.iq",
+    "name": {
+        "en": "Mob.iq"
+    },
     "description": {
         "en": "Enjoy the mobility"
     },

@@ -4,5 +4,8 @@
   },
   "1.0.1": {
     "en": "Fixed app name"
+  },
+  "1.1.0": {
+    "en": "Added timeout time for obstruction alarm"
   }
 }

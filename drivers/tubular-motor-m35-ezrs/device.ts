@@ -2,7 +2,7 @@ import { ZwaveDevice } from 'homey-zwavedriver';
 
 class Device extends ZwaveDevice {
     async onNodeInit() {
-        this.enableDebug();
+        // this.enableDebug();
         // this.printNode();
 
         this.log('Device has been initialized');
@@ -33,12 +33,22 @@ class Device extends ZwaveDevice {
                         'windowcoverings_set',
                         'SWITCH_MULTILEVEL'
                     ).catch(this.error);
+
+                    setTimeout(
+                        async () => {
+                            await this.setCapabilityValue(
+                                'alarm_contact',
+                                false
+                            ).catch(this.error);
+                        },
+                        this.getSetting('alarm_reset_time') * 1000 * 60
+                    );
+
                     return report['Event'] === 3;
                 }
                 return null;
             },
         });
-        // Set alarm_contact to false
         await this.setCapabilityValue('alarm_contact', false).catch(this.error);
     }
 }

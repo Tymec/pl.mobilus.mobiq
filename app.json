@@ -197,6 +197,22 @@
           "units": {
             "en": "minutes"
           }
+        },
+        {
+          "id": "alarm_reset_time",
+          "type": "number",
+          "value": 1,
+          "min": 1,
+          "max": 1440,
+          "label": {
+            "en": "Alarm reset time"
+          },
+          "hint": {
+            "en": "How long to wait before resetting the alarm state"
+          },
+          "units": {
+            "en": "minutes"
+          }
         }
       ]
     }
